@@ -1,0 +1,131 @@
+<!Doctipe html>
+<html lang='es'>
+
+<head>
+    <meta charset="utf-8">
+    <title> Formulario de datos </title>
+    <link rel='icon' href='image/icono.png'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css" type="text/css">
+</head>
+
+<body background="image/fondo.gif" style=background-size:cover>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <a class="navbar-brand" style="color: white;">Ejemplo sencillo con Formulario</a>
+    </nav>
+
+    <form action="Ejercicio.html" method="get">
+        <!--Fecha y hora que realizo el formulario -->
+        <div id="FyH">
+            <p style="color: white;">Por favor ingrese la fecha y hora que realizo el formulario</p>
+            <input type="datetime-local" name="FechaYHora">
+        </div>
+
+        <!-- input para seleccionar la imagen -->
+        <p style="color: white;"><abbr title="El formato de la imagen solo puede ser jpeg, png y gif"> <em>Seleccione una imagen</em></abbr></p>
+        <input type="file" id="SeleccionArchivos" name="Archivo" accept="image/jpeg,image/png,image/gif" style="color: white;">
+        <!--Previsualizar la imagen-->
+        <br><img id="imagenPrevisualizacion" width="250" height="200">
+        <script src="script.js"></script>
+
+        <br><br><br>
+
+        <!-- Cruadros de texto -->
+        <label style="color: white;">Nombre: <input type="text" name="nombre" size="15" placeholder="Ingrese su nombre" minlength="10" id="nombre" required></label><br>
+        <label style="color: white;">Apellido: <input type="text" name="apellido" size="15" placeholder="Ingrese su apellido" minlength="10" id="apellido" required></label><br>
+        <label style="color: white;">Edad: <input type="number" name="edad" min="18" max="100"></label><br>
+        <label style="color: white;">Correo Electronico: <input type="email" name="correo" placeholder="Ingrese su correo electronico" id="correo" required></label><br>
+        <label style="color: white;">Numero de telefono: <input type="tel" name="Telefono" style="color: white;"> </label>
+
+        <br>
+        <!-- Opcion para elegir el sexo -->
+        <p style="color: white;">Sexo:
+            <label><input type="radio" name="sexo" id="sexo" value="h" style="color: white;" required> Hombre </label>
+            <label><input type="radio" name="sexo" id="sexo" value="m" style="color: white;"  required> Mujer </label>
+            <label><input type="radio" name="sexo" id="sexo" value="o" style="color: white;"  required> Otro </label>
+        </p>
+
+        <!--Elegir Estado del pais -->
+        <p style="color: white;"> Por favor indique desde donde se esta contestando este formulario </p>
+        <select name="Estado" style="color: rgb(14, 13, 13);">
+            <option value="BJ">Baja california</option> 
+            <option value="Coah">Coahulia</option> 
+            <option value="chis">Chiapas</option>
+            <option value="Dgo">Durango</option>
+            <option value="NL" selected>Nuevo Leon</option>
+            <option value="SLP">San luis potosi</option>
+            <option value="Sin">Sinaloa</option>
+            <option value="Tamps">Tamaulipas</option>
+            <option value="ver">Veracruz</option>
+           </select>
+
+
+        <br><br>
+        <!-- Agregar una calificacion al formulario -->
+        <p style="color: white;"> Califica este formulario <br><input type="range" name="rango" min="1" max="3">
+            <br>Malo, Regular y Bueno </p>
+
+        <!-- Cuadro de texto -->
+        <p style="color: white;">¿Que mejorarías de este formulario? </p>
+        <textarea name="feedback" rows="4" cols="40">Tu opinión es muy importante</textarea>
+
+        <br><br>
+
+        <!-- Terminos y condiciones -->
+        <input type="checkbox" name="ValidarTyC" id="ValidarTyC" required>
+        <a href="TyC.html" target="blank" title="Leer Terminos y Condiciones" style="color: white;">He leido y acepto los Terminos y Condiciones  </a><br>
+        <!-- Boton para enviar formulario -->
+        <input type="submit" class="button" name="enviar" onclick="hizoClick()" value="Enviar">
+        <script>
+            function hizoClick() {
+                var nombre = document.getElementById("nombre").value;
+                var apellido = document.getElementById("apellido").value;
+                var correo = document.getElementById("correo").value;
+                var sexo = document.getElementById("sexo").value;
+                var ValidarTyC = document.getElementById("ValidarTyC").value;
+                if (nombre == "") {
+                    alert("El campo nombre esta vacio");
+                } else if (apellido == "") {
+                    alert("El campo apellido esta vacio");
+                } else if (apellido == "") {
+                    alert("El campo apellido esta vacio");
+                } else if (correo == "") {
+                    alert("El campo correo esta vacio");
+                } else if (sexo == "") {
+                    alert("El campo sexo esta vacio");
+                } else if (ValidarTyC == "") {
+                    alert("El campo de termino y condiciones esta vacio");
+                } else {
+                    alert("El formulario se ha enviado correctamente");
+                }
+            }
+        </script>
+        <!-- Boton para resetear formulario -->
+        <input type="reset" value="Borrar" id="btnreset" class="Button">
+    </form>
+
+
+</body>
+<footer class="text-center footer-style">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 footer-col">
+                <h3>Dirección</h3>
+                <p>Mty - Mexico</p>
+            </div>
+            <div class="col-md-4 footer-col">
+                <h3>Mis redes Sociales</h3>
+                <a href="https://www.facebook.com/cessar.garcia13/" target="_blank"><img src="image/icono-facebook.png" alt="Facebook" width="50px" height="50px"></a>
+                <a href="https://github.com/CessarGarcia" target="_blank"><img src="image/icono-github.png" alt="github" width="50px" height="50px"></a>
+                <a href="https://www.instagram.com/cessargarcia13/" target="_blank"><img src="image/icono-instagram.png" alt="Instagram" width="50px" height="50px"></a>
+            </div>
+            <div class="col-md-4 footer-col">
+                <h3>Trabajo FreeLancer</h3>
+                <p>¡Me gusta lo que hago!</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</html>
